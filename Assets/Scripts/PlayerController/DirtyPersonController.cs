@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarbageCanController : PlayerControllerBase
+public class DirtyPersonController : PlayerControllerBase
 {
+    [SerializeField]
+    DirtyPersonModel _dirtyPersonModel;
+
     protected override void Update()
     {
         base.Update();
