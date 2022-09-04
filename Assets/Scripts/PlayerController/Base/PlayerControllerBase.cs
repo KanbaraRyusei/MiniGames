@@ -2,25 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System.Linq;
 
 [RequireComponent(typeof(Rigidbody2D),typeof(Collider2D))]
 public abstract class PlayerControllerBase : MonoBehaviour
 {
     [SerializeField]
     [Header("スピード")]
-    private int _speed;
+    protected int _speed;
 
     [SerializeField]
     [Header("動ける方向")]
-    private MoveDirection _moveDirection = MoveDirection.Horizontal;
+    protected MoveDirection _moveDirection = MoveDirection.Horizontal;
 
     [SerializeField]
     [Header("クールタイム")]
-    private int _coolTime;
+    protected int _coolTime;
 
-    Rigidbody2D _rb;
+    [SerializeField]
+    [Header("弾のプレハブ")]
+    protected GameObject _bulletPrefab;
 
-    private void Start()
+    protected bool _isCoolTime = false;
+
+    protected Rigidbody2D _rb;
+
+    protected List<GameObject> _bullets;
+
+    protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -54,10 +63,10 @@ public abstract class PlayerControllerBase : MonoBehaviour
 
     protected abstract void Attack();
 
-    enum MoveDirection
+    protected abstract void CoolTime();
+
+    protected GameObject[] InactiveBulletsSearch()
     {
-        All,
-        Horizontal,
-        Vertical
+        return _bullets.Where(x => !x.activeInHierarchy).ToArray();
     }
 }

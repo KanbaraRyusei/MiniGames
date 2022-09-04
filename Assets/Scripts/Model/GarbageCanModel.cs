@@ -17,6 +17,7 @@ public class GarbageCanModel : MonoBehaviour
     private void Awake()
     {
         _hp = _maxHp;
+        _canAttack = false;
     }
 
     public void RecoveryHP(int value)
