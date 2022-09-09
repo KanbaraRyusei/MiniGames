@@ -154,6 +154,8 @@ MonoBehaviour:
   _coolTime: 1000
   _bulletPrefab: {fileID: 7095500654628113979, guid: ea23dc047944577418168b35e36e1f6d, type: 3}
   _garbageCanModel: {fileID: 5693397494313856487}
+  _nomalSprite: {fileID: 21300000, guid: 4cc911200990e9d4fbec631b99d2bf4b, type: 3}
+  _specialSprite: {fileID: 21300000, guid: 3300fe5c018acfb4da1dbb48fcb452e0, type: 3}
 --- !u!114 &5693397494313856487
 MonoBehaviour:
   m_ObjectHideFlags: 0
