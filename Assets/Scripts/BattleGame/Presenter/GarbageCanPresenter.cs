@@ -19,9 +19,7 @@ public class GarbageCanPresenter : MonoBehaviour
 
     private void Start()
     {
-        _garbageCanView.SetSliderMaxValue(_garbageCanModel.MaxHp);
-
-        _garbageCanModel.ObserveEveryValueChanged(model => model.HP)
+        _garbageCanModel.ObserveEveryValueChanged(model => model.Score)
             .Subscribe(value =>
             {
                 _garbageCanView.SliderValueUpdate(value);

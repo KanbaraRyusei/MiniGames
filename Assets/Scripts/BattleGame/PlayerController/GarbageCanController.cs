@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class GarbageCanController : PlayerControllerBase
+public class GarbageCanController : PlayerControllerBase, ICollectable
 {
     [SerializeField]
     GarbageCanModel _garbageCanModel;
@@ -41,5 +41,10 @@ public class GarbageCanController : PlayerControllerBase
         _isCoolTime = true;
         await UniTask.Delay(_coolTime);
         _isCoolTime = false;
+    }
+
+    public void Collect(int num)
+    {
+        _garbageCanModel.AddScore(num);
     }
 }

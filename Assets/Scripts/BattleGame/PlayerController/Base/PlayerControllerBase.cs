@@ -27,7 +27,7 @@ public abstract class PlayerControllerBase : MonoBehaviour
 
     protected Rigidbody2D _rb;
 
-    protected List<GameObject> _bullets;
+    protected List<GameObject> _bullets = new List<GameObject>();
 
     protected virtual void Awake()
     {
@@ -67,6 +67,6 @@ public abstract class PlayerControllerBase : MonoBehaviour
 
     protected GameObject[] InactiveBulletsSearch()
     {
-        return _bullets.Where(x => !x.activeInHierarchy).ToArray();
+        return _bullets.Where(x => !x.activeInHierarchy)?.ToArray();
     }
 }

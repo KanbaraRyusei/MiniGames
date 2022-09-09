@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class BulletController : MonoBehaviour
 {
     [SerializeField]
     private int _speed = 1;
 
     [SerializeField]
-    private int _damage = 1;
+    private int _amount = 1;
+
+    [SerializeField]
+    private string _gameOverTag = "Finish";
     
     private Rigidbody2D _rb;
 
@@ -20,9 +24,14 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out IDamage damage))
+        if(collision.TryGetComponent(out ICollectable collectable))
         {
-            damage.OnDamage(_damage);
+            collectable.Collect(_amount);
+            gameObject.SetActive(false);
+        }
+        if(collision.tag == _gameOverTag)
+        {
+            gameObject.SetActive(false);
         }
     }
 

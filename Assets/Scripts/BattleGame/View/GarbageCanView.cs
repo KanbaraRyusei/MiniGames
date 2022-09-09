@@ -6,15 +6,10 @@ using UnityEngine.UI;
 public class GarbageCanView : MonoBehaviour
 {
     [SerializeField]
-    Slider _slider;
+    Text _text;
 
-    public void SetSliderMaxValue(float maxValue)
+    public void SliderValueUpdate(int value)
     {
-        _slider.maxValue = maxValue;
-    }
-
-    public void SliderValueUpdate(float value)
-    {
-        _slider.value = value;
+        _text.text = value.ToString();
     }
 }

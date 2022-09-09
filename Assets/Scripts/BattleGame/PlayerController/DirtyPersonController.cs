@@ -25,6 +25,7 @@ public class DirtyPersonController : PlayerControllerBase, IDamage
         var bullet = InactiveBulletsSearch();
         if(bullet.Length > 0)
         {
+            bullet[0].transform.position = transform.position;
             bullet[0].SetActive(true);
         }
         else

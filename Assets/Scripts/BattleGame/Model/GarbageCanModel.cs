@@ -4,30 +4,21 @@ using UnityEngine;
 
 public class GarbageCanModel : MonoBehaviour
 {
-    public int MaxHp => _maxHp;
-    public int HP => _hp;
+    public int Score => _score;
     public bool CanAttack => _canAttack;
 
-    [SerializeField]
-    private int _maxHp;
-
-    private int _hp;
+    private int _score;
     private bool _canAttack;
 
     private void Awake()
     {
-        _hp = _maxHp;
+        _score = 0;
         _canAttack = false;
     }
 
-    public void RecoveryHP(int value)
+    public void AddScore(int num)
     {
-        _hp += value;
-    }
-
-    public void ReduceHP(int value)
-    {
-        _hp -= value;
+        _score += num;
     }
 
     public void AttackFlagChange(bool flag)
