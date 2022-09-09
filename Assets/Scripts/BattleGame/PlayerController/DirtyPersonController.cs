@@ -22,6 +22,17 @@ public class DirtyPersonController : PlayerControllerBase
     {
         if (_isCoolTime) return;
         if (!_dirtyPersonModel.CanAttack) return;
+        var bullet = InactiveBulletsSearch();
+        if(bullet.Length > 0)
+        {
+            bullet[0].SetActive(true);
+        }
+        else
+        {
+            var newBullet = Instantiate(_bulletPrefab, transform);
+            _bullets.Add(newBullet);
+        }
+        CoolTime();
     }
 
     protected override async void CoolTime()

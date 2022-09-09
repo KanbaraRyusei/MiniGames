@@ -16,7 +16,7 @@ public abstract class PlayerControllerBase : MonoBehaviour
     protected MoveDirection _moveDirection = MoveDirection.Horizontal;
 
     [SerializeField]
-    [Header("クールタイム")]
+    [Header("クールタイム(ミリ秒)")]
     protected int _coolTime;
 
     [SerializeField]
