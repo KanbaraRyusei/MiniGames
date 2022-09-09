@@ -33,7 +33,6 @@ public class GarbageCanController : PlayerControllerBase, ICollectable
             _bullets.Add(newBullet);
         }
         CoolTime();
-        Debug.Log("GarbageAttack");
     }
 
     protected override async void CoolTime()

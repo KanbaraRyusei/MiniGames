@@ -22,7 +22,7 @@ public class GarbageCanPresenter : MonoBehaviour
         _garbageCanModel.ObserveEveryValueChanged(model => model.Score)
             .Subscribe(value =>
             {
-                _garbageCanView.SliderValueUpdate(value);
+                _garbageCanView.TextValueUpdate(value);
             }).AddTo(this);
 
         _timeManager.ObserveEveryValueChanged(manager => manager.Timer)

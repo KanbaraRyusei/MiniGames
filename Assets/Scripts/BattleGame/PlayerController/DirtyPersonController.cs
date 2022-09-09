@@ -34,7 +34,6 @@ public class DirtyPersonController : PlayerControllerBase, IDamage
             _bullets.Add(newBullet);
         }
         CoolTime();
-        Debug.Log("DirtyAttack");
     }
 
     protected override async void CoolTime()
