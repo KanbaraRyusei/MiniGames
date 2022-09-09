@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class DirtyPersonController : PlayerControllerBase
+public class DirtyPersonController : PlayerControllerBase, IDamage
 {
     [SerializeField]
     DirtyPersonModel _dirtyPersonModel;
@@ -40,5 +40,10 @@ public class DirtyPersonController : PlayerControllerBase
         _isCoolTime = true;
         await UniTask.Delay(_coolTime);
         _isCoolTime = false;
+    }
+
+    public void OnDamage(int damage)
+    {
+        _dirtyPersonModel.ReduceHP(damage);
     }
 }

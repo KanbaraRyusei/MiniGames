@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class GarbageCanController : PlayerControllerBase
+public class GarbageCanController : PlayerControllerBase, IDamage
 {
     [SerializeField]
     GarbageCanModel _garbageCanModel;
@@ -11,11 +11,6 @@ public class GarbageCanController : PlayerControllerBase
     protected override void Update()
     {
         base.Update();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
     }
 
     protected override void Move()
@@ -44,5 +39,10 @@ public class GarbageCanController : PlayerControllerBase
         _isCoolTime = true;
         await UniTask.Delay(_coolTime);
         _isCoolTime = false;
+    }
+
+    public void OnDamage(int damage)
+    {
+        _garbageCanModel.ReduceHP(damage);
     }
 }
