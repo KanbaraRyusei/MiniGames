@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class GarbageCanController : PlayerControllerBase, IDamage
+public class GarbageCanController : PlayerControllerBase
 {
     [SerializeField]
     GarbageCanModel _garbageCanModel;
@@ -32,6 +32,8 @@ public class GarbageCanController : PlayerControllerBase, IDamage
             var newBullet = Instantiate(_bulletPrefab, transform);
             _bullets.Add(newBullet);
         }
+        CoolTime();
+        Debug.Log("GarbageAttack");
     }
 
     protected override async void CoolTime()
@@ -39,10 +41,5 @@ public class GarbageCanController : PlayerControllerBase, IDamage
         _isCoolTime = true;
         await UniTask.Delay(_coolTime);
         _isCoolTime = false;
-    }
-
-    public void OnDamage(int damage)
-    {
-        _garbageCanModel.ReduceHP(damage);
     }
 }
