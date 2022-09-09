@@ -14,6 +14,8 @@ public class DirtyPersonModel : MonoBehaviour
     private int _hp;
     private bool _canAttack;
 
+    private const int ZERO = 0;
+
     private void Awake()
     {
         _hp = _maxHp;
@@ -28,6 +30,10 @@ public class DirtyPersonModel : MonoBehaviour
     public void ReduceHP(int value)
     {
         _hp -= value;
+        if(_hp <= ZERO)
+        {
+            Debug.Log("DirtyPerson Dead!");
+        }
     }
 
     public void AttackFlagChange(bool flag)

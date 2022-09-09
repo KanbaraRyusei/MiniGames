@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class BulletController : MonoBehaviour
+public class GarbageController : MonoBehaviour
 {
     [SerializeField]
     private int _speed = 1;
