@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class DirtyPersonController : PlayerControllerBase
+public class GarbageCanController : PlayerControllerBase
 {
     [SerializeField]
-    DirtyPersonModel _dirtyPersonModel;
-
-    private List<GameObject> _bullets;
+    GarbageCanModel _garbageCanModel;
 
     protected override void Update()
     {
@@ -23,7 +21,7 @@ public class DirtyPersonController : PlayerControllerBase
     protected override void Attack()
     {
         if (_isCoolTime) return;
-        if (!_dirtyPersonModel.CanAttack) return;
+        if (!_garbageCanModel.CanAttack) return;
     }
 
     protected override async void CoolTime()
