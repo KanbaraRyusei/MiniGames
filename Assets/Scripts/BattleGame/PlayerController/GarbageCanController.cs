@@ -13,6 +13,11 @@ public class GarbageCanController : PlayerControllerBase
         base.Update();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
     protected override void Move()
     {
         base.Move();
