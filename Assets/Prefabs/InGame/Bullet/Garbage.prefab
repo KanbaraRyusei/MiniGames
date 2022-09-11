@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d169033d2e2ed479e72311361b2801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  _damage: 1
+  _speed: 2
+  _amount: 1
   _gameOverTag: Finish
 --- !u!58 &-7198758401436922580
 CircleCollider2D:
