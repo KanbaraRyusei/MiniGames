@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
@@ -26,12 +27,16 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private string roomName = "Guest Room";
 
     [SerializeField]
-    [Header("ステージ")]
-    private string stageName = "Stage1";
+    [Header("入力")]
+    InputField _inputField;
 
     [SerializeField]
-    [Header("難易度")]
-    private string stageDifficulty = "Easy";
+    [Header("入室ボタン")]
+    Button _joinButton;
+
+    [SerializeField]
+    [Header("部屋作成ボタン")]
+    Button _createButton;
 
     #endregion
 
@@ -47,6 +52,16 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         // Photonに接続
         Connect("1.0");
+    }
+
+    #endregion
+
+    #region ui
+
+    private void SetButtonScript()
+    {
+        _createButton.onClick.AddListener(CreateAndJoinRoom);
+        _joinButton.onClick.AddListener(JoinOrCreateRoom);
     }
 
     #endregion
@@ -105,17 +120,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             IsOpen = isOpen
         };
 
-        // ルームオプションにカスタムプロパティを設定
-        ExitGames.Client.Photon.Hashtable customRoomProperties = new ExitGames.Client.Photon.Hashtable
-        {
-            { "Stage", stageName },
-            { "Difficulty", stageDifficulty }
-        };
-        roomOptions.CustomRoomProperties = customRoomProperties;
-
-        // ロビーに公開するカスタムプロパティを指定
-        roomOptions.CustomRoomPropertiesForLobby = new string[] { "Stage", "Difficulty" };
-
         // 部屋を作成して入室する
         if (PhotonNetwork.InLobby)
         {
@@ -138,17 +142,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             // 入室可
             IsOpen = isOpen
         };
-
-        // ルームオプションにカスタムプロパティを設定
-        ExitGames.Client.Photon.Hashtable customRoomProperties = new ExitGames.Client.Photon.Hashtable
-        {
-            { "Stage", stageName },
-            { "Difficulty", stageDifficulty }
-        };
-        roomOptions.CustomRoomProperties = customRoomProperties;
-
-        // ロビーに公開するカスタムプロパティを指定
-        roomOptions.CustomRoomPropertiesForLobby = new string[] { "Stage", "Difficulty" };
 
         // 入室 (存在しなければ部屋を作成して入室する)
         if (PhotonNetwork.InLobby)
