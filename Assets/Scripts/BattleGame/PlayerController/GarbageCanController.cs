@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using UniRx;
+using Photon.Pun;
 
+[RequireComponent(typeof(PhotonView))]
+[RequireComponent(typeof(PhotonTransformView))]
 public class GarbageCanController : PlayerControllerBase, ICollectable
 {
     [SerializeField]
@@ -17,6 +20,8 @@ public class GarbageCanController : PlayerControllerBase, ICollectable
 
     SpriteRenderer _sp;
 
+    PhotonView _photonView;
+
     private void Start()
     {
         _sp = GetComponent<SpriteRenderer>();
@@ -26,10 +31,12 @@ public class GarbageCanController : PlayerControllerBase, ICollectable
             {
                 SpriteChange(flag);
             });
+        _photonView = GetComponent<PhotonView>();
     }
 
     protected override void Update()
     {
+        if (!_photonView.IsMine) return;
         base.Update();
     }
 
@@ -53,10 +60,10 @@ public class GarbageCanController : PlayerControllerBase, ICollectable
             var newBullet = Instantiate(_bulletPrefab, transform);
             _bullets.Add(newBullet);
         }
-        CoolTime();
+        _ = CoolTime();
     }
 
-    protected override async void CoolTime()
+    protected override async UniTask CoolTime()
     {
         _isCoolTime = true;
         await UniTask.Delay(_coolTime);

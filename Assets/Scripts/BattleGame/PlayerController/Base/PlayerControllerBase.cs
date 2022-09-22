@@ -63,7 +63,7 @@ public abstract class PlayerControllerBase : MonoBehaviour
 
     protected abstract void Attack();
 
-    protected abstract void CoolTime();
+    protected abstract UniTask CoolTime();
 
     protected GameObject[] InactiveBulletsSearch()
     {

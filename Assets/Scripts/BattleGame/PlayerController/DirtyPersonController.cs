@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using Photon.Pun;
+
+[RequireComponent(typeof(PhotonView))]
+[RequireComponent(typeof(PhotonTransformView))]
 
 public class DirtyPersonController : PlayerControllerBase, IDamage
 {
     [SerializeField]
     DirtyPersonModel _dirtyPersonModel;
 
+    private PhotonView _photonView;
+
+    private void Start()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
+
     protected override void Update()
     {
+        if (!_photonView.IsMine) return;
         base.Update();
     }
 
@@ -33,10 +45,10 @@ public class DirtyPersonController : PlayerControllerBase, IDamage
             var newBullet = Instantiate(_bulletPrefab, transform);
             _bullets.Add(newBullet);
         }
-        CoolTime();
+        _ = CoolTime();
     }
 
-    protected override async void CoolTime()
+    protected override async UniTask CoolTime()
     {
         _isCoolTime = true;
         await UniTask.Delay(_coolTime);
