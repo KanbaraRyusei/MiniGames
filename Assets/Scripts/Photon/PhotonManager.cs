@@ -26,18 +26,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     [Header("部屋名")]
     private string roomName = "Guest Room";
 
-    [SerializeField]
-    [Header("入力")]
-    InputField _inputField;
-
-    [SerializeField]
-    [Header("入室ボタン")]
-    Button _joinButton;
-
-    [SerializeField]
-    [Header("部屋作成ボタン")]
-    Button _createButton;
-
     #endregion
 
     #region unity event
@@ -52,16 +40,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         // Photonに接続
         Connect("1.0");
-    }
-
-    #endregion
-
-    #region ui
-
-    private void SetButtonScript()
-    {
-        _createButton.onClick.AddListener(CreateAndJoinRoom);
-        _joinButton.onClick.AddListener(JoinOrCreateRoom);
     }
 
     #endregion
@@ -189,10 +167,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     // Photonに接続した時
     public override void OnConnected()
     {
-        Debug.Log("OnConnected");
-
         // ニックネームを付ける
-        SetMyNickName("Guest");
+        SetMyNickName("name");
     }
 
     // Photonから切断された時
