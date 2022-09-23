@@ -32,7 +32,7 @@ public class DirtyPersonModel : MonoBehaviour
         _hp -= value;
         if(_hp <= ZERO)
         {
-            Debug.Log("DirtyPerson Dead!");
+            GameManager.GameOver();
         }
     }
 
