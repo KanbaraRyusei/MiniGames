@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0cd8ffff
-      m_LastClickedID: -10228
-      m_ExpandedIDs: 0cd8ffff26fbffffc4640000
+      m_SelectedIDs: 7c8a0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: ec7cfffff27dffff427effff2281ffff6281ffff6681ffff7a81ffff8c81ffffa284ffff0485ffffe48dffff2e8fffff5ca6ffffaca6ffffc8abffff20acffff0cd8ffff26fbffffc4640000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -525,9 +525,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 551.69525, y: 948.9097, z: 7.796865}
+    m_Target: {x: 1054.8466, y: 615.9692, z: 5.7419906}
     speed: 2
-    m_Value: {x: 551.69525, y: 948.9097, z: 7.796865}
+    m_Value: {x: 1054.8466, y: 615.9692, z: 5.7419906}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,9 +578,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 522.5872
+    m_Target: 527.2544
     speed: 2
-    m_Value: 522.5872
+    m_Value: 527.2544
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -727,22 +727,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Photon
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Photon
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tekun\Documents\MiniGames
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 131.80002}
-    m_SelectedIDs: ac650000
-    m_LastClickedID: 26028
-    m_ExpandedIDs: 000000008465000086650000886500008a6500008c65000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 9a650000
+    m_LastClickedID: 26010
+    m_ExpandedIDs: 000000008465000086650000886500008a6500008c6500009a65000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -770,7 +770,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008465000086650000886500008a6500008c650000
+    m_ExpandedIDs: 000000008465000086650000886500008a6500008c65000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -795,8 +795,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0cd8ffff
-    m_LastClickedInstanceID: -10228
+    m_SelectedInstanceIDs: 7c8a0000
+    m_LastClickedInstanceID: 35452
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
