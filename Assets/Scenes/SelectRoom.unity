@@ -889,6 +889,10 @@ MonoBehaviour:
   _inputField: {fileID: 621239721}
   _joinButton: {fileID: 1637627615}
   _panel: {fileID: 803550239}
+  _garbageCanPath: GarbageCan
+  _dirtyPersonPath: DirtyPerson
+  _garbageCanPosition: {x: 0, y: -4, z: 0}
+  _dirtyPersonPosition: {x: 0, y: 2, z: 0}
 --- !u!1 &1525586412
 GameObject:
   m_ObjectHideFlags: 0
