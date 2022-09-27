@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class InitManager : MonoBehaviour
 {
@@ -11,5 +11,12 @@ public class InitManager : MonoBehaviour
     private void Start()
     {
         _timeManager.TimerStart();
+    }
+
+    private void Init()
+    {
+        var master = FindObjectOfType<GarbageCanController>().gameObject;
+        var enemy = FindObjectOfType<DirtyPersonController>().gameObject;
+        //SceneManager.MoveGameObjectToScene(master,)
     }
 }
