@@ -42,7 +42,7 @@ public class DirtyPersonModel : MonoBehaviour, IPunObservable
         _canAttack = flag;
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if(stream.IsWriting)
         {
