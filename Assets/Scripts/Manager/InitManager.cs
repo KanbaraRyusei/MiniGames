@@ -10,6 +10,7 @@ public class InitManager : MonoBehaviour
 
     private void Start()
     {
+        Init();
         _timeManager.TimerStart();
     }
 
@@ -17,6 +18,7 @@ public class InitManager : MonoBehaviour
     {
         var master = FindObjectOfType<GarbageCanController>().gameObject;
         var enemy = FindObjectOfType<DirtyPersonController>().gameObject;
-        //SceneManager.MoveGameObjectToScene(master,)
+        SceneManager.MoveGameObjectToScene(master, SceneManager.GetActiveScene());
+        SceneManager.MoveGameObjectToScene(enemy, SceneManager.GetActiveScene());
     }
 }
