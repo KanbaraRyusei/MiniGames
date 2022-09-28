@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using Cysharp.Threading.Tasks;
 
 public class GarbageCanPresenter : MonoBehaviour
 {
@@ -21,8 +22,25 @@ public class GarbageCanPresenter : MonoBehaviour
 
     private void Start()
     {
+        _ = GetGarbageCan();
+        _garbageCanModel = FindObjectOfType<GarbageCanModel>();
+        if (_garbageCanModel != null)
+        {
+            Debug.LogError("okg");
+        }
+
+        SetRx();
+    }
+
+    private async UniTask GetGarbageCan()
+    {
+        await UniTask.DelayFrame(10);
         _garbageCanModel = FindObjectOfType<GarbageCanModel>();
 
+    }
+
+    private void SetRx()
+    {
         _garbageCanModel.ObserveEveryValueChanged(model => model.Score)
             .Subscribe(value =>
             {

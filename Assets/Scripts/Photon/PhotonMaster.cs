@@ -27,18 +27,6 @@ public class PhotonMaster : MonoBehaviourPunCallbacks
     [Header("ƒpƒlƒ‹")]
     GameObject _panel;
 
-    [SerializeField]
-    string _garbageCanPath;
-
-    [SerializeField]
-    string _dirtyPersonPath;
-
-    [SerializeField]
-    Vector3 _garbageCanPosition;
-
-    [SerializeField]
-    Vector3 _dirtyPersonPosition;
-
     private const int MaxPlayerPerRoom = 2;
 
     private void Awake()
@@ -91,15 +79,11 @@ public class PhotonMaster : MonoBehaviourPunCallbacks
         int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
         if (playerCount != MaxPlayerPerRoom)
         {
-            var garbageCan = PhotonNetwork.Instantiate(_garbageCanPath, _garbageCanPosition, Quaternion.identity);
-            DontDestroyOnLoad(garbageCan);
             _statusText.text = "Search Enemy...";
             _panel.SetActive(true);
         }
         else
         {
-            var dirtyPerson = PhotonNetwork.Instantiate(_dirtyPersonPath, _dirtyPersonPosition, Quaternion.identity);
-            DontDestroyOnLoad(dirtyPerson);
             _statusText.text = "Enemy is Coming";
         }
     }

@@ -835,10 +835,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50a54e2e1c7a3b4e89d5ef3024e22b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _garbageCanModel: {fileID: 5693397494313856487, guid: b89b811d18566ae4589c720a9fba5526, type: 3}
   _garbageCanView: {fileID: 1346296740}
   _timeManager: {fileID: 1318990944}
   _canAttackTime: 10
+  _canAttackScore: 10
 --- !u!114 &1318990943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b09dfde7318db34c9986caee5b20f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dirtyPersonModel: {fileID: 6309382698924692840, guid: 94499fab892994e4d99bc086b14acb9d, type: 3}
   _dirtyPersonView: {fileID: 1006221062}
   _timeManager: {fileID: 1318990944}
   _canAttackTime: 10
@@ -895,6 +894,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeManager: {fileID: 1318990944}
+  _garbageCanPath: GarbageCan
+  _dirtyPersonPath: DirtyPerson
+  _garbageCanPosition: {x: 0, y: -4, z: 0}
+  _dirtyPersonPosition: {x: 0, y: 3, z: 0}
 --- !u!1 &1346296736
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using Cysharp.Threading.Tasks;
 
 public class DirtyPersonPresenter : MonoBehaviour
 {
@@ -14,12 +15,28 @@ public class DirtyPersonPresenter : MonoBehaviour
     [SerializeField]
     private float _canAttackTime;
 
-    DirtyPersonModel _dirtyPersonModel;
+    DirtyPersonModel _dirtyPersonModel = null;
 
     private void Start()
     {
+        _ = GetDirtyPerson();
+        if (_dirtyPersonModel != null)
+        {
+            Debug.LogError("ok");
+        }
+
+        SetRx();
+    }
+
+    private async UniTask GetDirtyPerson()
+    {
+        await UniTask.DelayFrame(10);
         _dirtyPersonModel = FindObjectOfType<DirtyPersonModel>();
 
+    }
+
+    private void SetRx()
+    {
         _dirtyPersonView.SetSliderMaxValue(_dirtyPersonModel.MaxHp);
 
         _dirtyPersonModel.ObserveEveryValueChanged(model => model.HP)
@@ -29,7 +46,7 @@ public class DirtyPersonPresenter : MonoBehaviour
         _timeManager.ObserveEveryValueChanged(manager => manager.Timer)
             .Subscribe(value =>
             {
-                if(_canAttackTime < value)
+                if (_canAttackTime < value)
                 {
                     _dirtyPersonModel.AttackFlagChange(false);
                 }

@@ -47,10 +47,12 @@ public class DirtyPersonModel : MonoBehaviour, IPunObservable
         if(stream.IsWriting)
         {
             stream.SendNext(_hp);
+            Debug.Log("c" + _hp);
         }
         else
         {
             _hp = (int)stream.ReceiveNext();
+            Debug.Log("d" + _hp);
         }
     }
 }
