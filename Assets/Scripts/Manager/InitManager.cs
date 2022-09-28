@@ -10,7 +10,7 @@ public class InitManager : MonoBehaviour
 
     private void Start()
     {
-        Init();
+        //Init();
         _timeManager.TimerStart();
     }
 

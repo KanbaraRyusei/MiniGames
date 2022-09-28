@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class DirtyPersonModel : MonoBehaviour
+public class DirtyPersonModel : MonoBehaviour, IPunObservable
 {
     public int MaxHp => _maxHp;
     public int HP => _hp;
@@ -39,5 +40,17 @@ public class DirtyPersonModel : MonoBehaviour
     public void AttackFlagChange(bool flag)
     {
         _canAttack = flag;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(_hp);
+        }
+        else
+        {
+            _hp = (int)stream.ReceiveNext();
+        }
     }
 }

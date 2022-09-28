@@ -20,14 +20,12 @@ public abstract class PlayerControllerBase : MonoBehaviour
     protected int _coolTime;
 
     [SerializeField]
-    [Header("弾のプレハブ")]
-    protected GameObject _bulletPrefab;
+    [Header("弾のプレハブの名前")]
+    protected string _bulletPrefabName;
 
     protected bool _isCoolTime = false;
 
     protected Rigidbody2D _rb;
-
-    protected List<GameObject> _bullets = new List<GameObject>();
 
     protected virtual void Awake()
     {
@@ -64,9 +62,4 @@ public abstract class PlayerControllerBase : MonoBehaviour
     protected abstract void Attack();
 
     protected abstract UniTask CoolTime();
-
-    protected GameObject[] InactiveBulletsSearch()
-    {
-        return _bullets.Where(x => !x.activeInHierarchy)?.ToArray();
-    }
 }

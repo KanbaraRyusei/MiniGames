@@ -6,9 +6,6 @@ using UniRx;
 public class DirtyPersonPresenter : MonoBehaviour
 {
     [SerializeField]
-    DirtyPersonModel _dirtyPersonModel;
-
-    [SerializeField]
     DirtyPersonView _dirtyPersonView;
 
     [SerializeField]
@@ -17,8 +14,12 @@ public class DirtyPersonPresenter : MonoBehaviour
     [SerializeField]
     private float _canAttackTime;
 
+    DirtyPersonModel _dirtyPersonModel;
+
     private void Start()
     {
+        _dirtyPersonModel = FindObjectOfType<DirtyPersonModel>();
+
         _dirtyPersonView.SetSliderMaxValue(_dirtyPersonModel.MaxHp);
 
         _dirtyPersonModel.ObserveEveryValueChanged(model => model.HP)

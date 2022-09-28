@@ -6,9 +6,6 @@ using UniRx;
 public class GarbageCanPresenter : MonoBehaviour
 {
     [SerializeField]
-    GarbageCanModel _garbageCanModel;
-
-    [SerializeField]
     GarbageCanView _garbageCanView;
 
     [SerializeField]
@@ -17,12 +14,25 @@ public class GarbageCanPresenter : MonoBehaviour
     [SerializeField]
     private float _canAttackTime;
 
+    [SerializeField]
+    private int _canAttackScore = 10;
+
+    GarbageCanModel _garbageCanModel;
+
     private void Start()
     {
+        _garbageCanModel = FindObjectOfType<GarbageCanModel>();
+
         _garbageCanModel.ObserveEveryValueChanged(model => model.Score)
             .Subscribe(value =>
             {
                 _garbageCanView.TextValueUpdate(value);
+            }).AddTo(this);
+
+        _garbageCanModel.ObserveEveryValueChanged(model => model.Score)
+            .Subscribe(value =>
+            {
+                _garbageCanModel.AttackFlagChange(value >= _canAttackScore);
             }).AddTo(this);
 
         _timeManager.ObserveEveryValueChanged(manager => manager.Timer)

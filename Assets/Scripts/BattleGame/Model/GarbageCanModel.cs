@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class GarbageCanModel : MonoBehaviour
+public class GarbageCanModel : MonoBehaviour, IPunObservable
 {
     public int Score => _score;
     public bool CanAttack => _canAttack;
@@ -24,5 +25,17 @@ public class GarbageCanModel : MonoBehaviour
     public void AttackFlagChange(bool flag)
     {
         _canAttack = flag;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(_score);
+        }
+        else
+        {
+            _score = (int)stream.ReceiveNext();
+        }
     }
 }

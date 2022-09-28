@@ -26,11 +26,11 @@ public class TrashBagController : MonoBehaviour
         if(collision.TryGetComponent(out IDamage damage))
         {
             damage.OnDamage(_damage);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         if(collision.tag == _gameOverTag)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

@@ -34,17 +34,7 @@ public class DirtyPersonController : PlayerControllerBase, IDamage
     {
         if (_isCoolTime) return;
         if (!_dirtyPersonModel.CanAttack) return;
-        var bullet = InactiveBulletsSearch();
-        if(bullet.Length > 0)
-        {
-            bullet[0].transform.position = transform.position;
-            bullet[0].SetActive(true);
-        }
-        else
-        {
-            var newBullet = Instantiate(_bulletPrefab, transform);
-            _bullets.Add(newBullet);
-        }
+        PhotonNetwork.Instantiate(_bulletPrefabName, transform.position, Quaternion.identity);
         _ = CoolTime();
     }
 

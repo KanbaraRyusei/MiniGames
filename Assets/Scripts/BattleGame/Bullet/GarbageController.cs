@@ -27,11 +27,11 @@ public class GarbageController : MonoBehaviour
         if(collision.TryGetComponent(out ICollectable collectable))
         {
             collectable.Collect(_amount);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         if(collision.tag == _gameOverTag)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

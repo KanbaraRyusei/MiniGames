@@ -121,7 +121,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   _speed: 5
   _moveDirection: 1
   _coolTime: 1000
-  _bulletPrefab: {fileID: 7095500654628113979, guid: ea23dc047944577418168b35e36e1f6d, type: 3}
+  _bulletPrefabName: TrashBags
   _garbageCanModel: {fileID: 5693397494313856487}
   _nomalSprite: {fileID: 21300000, guid: 4cc911200990e9d4fbec631b99d2bf4b, type: 3}
   _specialSprite: {fileID: 21300000, guid: 3300fe5c018acfb4da1dbb48fcb452e0, type: 3}
@@ -204,6 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
+  m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
