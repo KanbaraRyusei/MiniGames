@@ -23,20 +23,13 @@ public class GarbageCanPresenter : MonoBehaviour
     private void Start()
     {
         _ = GetGarbageCan();
-        _garbageCanModel = FindObjectOfType<GarbageCanModel>();
-        if (_garbageCanModel != null)
-        {
-            Debug.LogError("okg");
-        }
-
-        SetRx();
     }
 
     private async UniTask GetGarbageCan()
     {
-        await UniTask.DelayFrame(10);
+        await UniTask.DelayFrame(15);
         _garbageCanModel = FindObjectOfType<GarbageCanModel>();
-
+        SetRx();
     }
 
     private void SetRx()

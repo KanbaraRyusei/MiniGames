@@ -20,19 +20,13 @@ public class DirtyPersonPresenter : MonoBehaviour
     private void Start()
     {
         _ = GetDirtyPerson();
-        if (_dirtyPersonModel != null)
-        {
-            Debug.LogError("ok");
-        }
-
-        SetRx();
     }
 
     private async UniTask GetDirtyPerson()
     {
-        await UniTask.DelayFrame(10);
+        await UniTask.DelayFrame(15);
         _dirtyPersonModel = FindObjectOfType<DirtyPersonModel>();
-
+        SetRx();
     }
 
     private void SetRx()
