@@ -32,12 +32,10 @@ public class GarbageCanModel : MonoBehaviour, IPunObservable
         if(stream.IsWriting)
         {
             stream.SendNext(_score);
-            Debug.Log("a" + _score);
         }
         else
         {
             _score = (int)stream.ReceiveNext();
-            Debug.Log("b" + _score);
         }
     }
 }
