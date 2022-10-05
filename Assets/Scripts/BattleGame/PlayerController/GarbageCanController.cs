@@ -36,7 +36,7 @@ public class GarbageCanController : PlayerControllerBase, ICollectable
 
     protected override void Update()
     {
-        if (!_photonView.IsMine) return;
+        if (!_photonView.IsMine || !GameManager.IsStartGame) return;
         base.Update();
     }
 

@@ -10,6 +10,12 @@ public class InitManager : MonoBehaviour
     TimeManager _timeManager;
 
     [SerializeField]
+    TextChanger _textChanger;
+
+    [SerializeField]
+    string _textValue = "OK";
+
+    [SerializeField]
     string _garbageCanPath;
 
     [SerializeField]
@@ -21,10 +27,27 @@ public class InitManager : MonoBehaviour
     [SerializeField]
     Vector3 _dirtyPersonPosition;
 
+    bool _onSpace = false;
+
     private void Start()
     {
         _ = SetGame();
-        _timeManager.TimerStart();
+    }
+
+    private void Update()
+    {
+        if (_onSpace) return;
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            _textChanger.TextChange(_textValue);
+            if (GameManager.CanStartGame)
+            {
+                GameManager.GameStart();
+                _timeManager.TimerStart();
+            }
+            GameManager.OnSpace();
+            _onSpace = true;
+        }
     }
 
     private async UniTask SetGame()

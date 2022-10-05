@@ -31,7 +31,7 @@ public class GarbageController : MonoBehaviour
         }
         if(collision.tag == _gameOverTag)
         {
-            Destroy(gameObject);
+            GameManager.GameOver();
         }
     }
 

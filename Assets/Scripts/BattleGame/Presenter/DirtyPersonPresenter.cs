@@ -37,6 +37,10 @@ public class DirtyPersonPresenter : MonoBehaviour
             .Subscribe(value => _dirtyPersonView.SliderValueUpdate(value))
             .AddTo(this);
 
+        //_dirtyPersonModel.ObserveEveryValueChanged(model => model.CanAttack)
+
+        if (!GameManager.IsDebugMode) return;
+
         _timeManager.ObserveEveryValueChanged(manager => manager.Timer)
             .Subscribe(value =>
             {

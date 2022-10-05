@@ -45,6 +45,8 @@ public class GarbageCanPresenter : MonoBehaviour
             {
                 _garbageCanModel.AttackFlagChange(value >= _canAttackScore);
             }).AddTo(this);
+        
+        if (!GameManager.IsDebugMode) return;
 
         _timeManager.ObserveEveryValueChanged(manager => manager.Timer)
             .Subscribe(value =>

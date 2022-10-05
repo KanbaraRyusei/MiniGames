@@ -21,7 +21,7 @@ public class DirtyPersonController : PlayerControllerBase, IDamage
 
     protected override void Update()
     {
-        if (!_photonView.IsMine) return;
+        if (!_photonView.IsMine || !GameManager.IsStartGame) return;
         base.Update();
     }
 
