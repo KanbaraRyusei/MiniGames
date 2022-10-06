@@ -40,13 +40,13 @@ public class InitManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             _textChanger.TextChange(_textValue);
+            GameManager.OnSpace();
+            _onSpace = true;
             if (GameManager.CanStartGame)
             {
                 GameManager.GameStart();
                 _timeManager.TimerStart();
             }
-            GameManager.OnSpace();
-            _onSpace = true;
         }
     }
 
