@@ -17,7 +17,7 @@ public class TrashBagController : MonoBehaviour
 
     private void OnEnable()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = _rb ?? GetComponent<Rigidbody2D>();
         ShootBullet();
     }
 
