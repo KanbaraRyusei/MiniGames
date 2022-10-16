@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeManager: {fileID: 1318990944}
-  _textChanger: {fileID: 0}
+  _textChanger: {fileID: 876374630}
   _textValue: OK
   _garbageCanPath: GarbageCan
   _dirtyPersonPath: DirtyPerson
